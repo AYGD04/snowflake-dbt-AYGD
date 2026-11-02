@@ -15,10 +15,16 @@ with source_data as (
     union all
     select null as id
 
+),
+staging_data as (
+    
+    select *
+    from source_data
+    where id is not NULL
 )
 
 select *
-from source_data
+from staging_data
 
 /*
     Uncomment the line below to remove records with null `id` values
